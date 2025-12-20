@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Challenge</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+      function ProductDetails({ imageSrc, name, price, discountPrice}){
+        return (
+        <div>
+         <img src={imageSrc} width='100' />
+          <p>{name}</p>
+          {/*!discountPrice && <p>Price: ${price}</p>}  
+          {discountPrice && 
+            <div> 
+              <del><p>Price: ${price}</p></del>
+              <p>Discount price: {discountPrice}</p>
+            </div> */}  
+
+             {!discountPrice ? <p>Price: ${price}</p> :
+                <div> 
+                  <del><p>Price: ${price}</p></del>
+                  <p>Discount price: {discountPrice}</p>
+                </div> }  
+          
+          <button>Add to Cart</button>
+        </div>
+      )
+      }
+      
+      function App(){
+        return (
+        <>
+          <ProductDetails imageSrc = 'cotton-socks.png' name = 'Cotton socks' price = '10.90' discountPrice  = '5.5' />
+          <ProductDetails imageSrc = 'tennis-balls.png' name = 'Tennis balls' price = '6.00'/>
+          <ProductDetails imageSrc = 'plain-t-shirt.png' name = 'Plain T-Shirt' price = '7.99'/>
+        </>
+      )
+      }
+
+      
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
