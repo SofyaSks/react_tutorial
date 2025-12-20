@@ -8,6 +8,7 @@
 
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
@@ -23,9 +24,42 @@
         </div>
       )
 
-      const container = document.querySelector('.js-container');
+      const socks = 10;
+      const tshirt = 8;
+      const productCost = socks + tshirt * 2;
 
-      ReactDOM.createRoot(container).render(div);
+      console.log(productCost);
+
+
+      const price_p = <p>Product cost: $ {productCost}</p>
+      
+      const shippingCost = 5;
+
+      const div_cost = (
+        <div>
+          <p>Product cost: ${productCost}</p>
+          <p>Shipping cost: ${shippingCost}</p>
+          <p>Total cost: ${productCost+shippingCost}</p>
+          <button>Place your order</button>
+        </div>
+      )
+
+      console.log(dayjs().format('MMMM D'));
+      
+      const p_date = <p>Today is {dayjs().format('MMMM D')}</p>
+      const p_time = <p>Current time {dayjs().format('HH:mm:ss')}</p>
+
+
+      const container = document.querySelector('.js-container');
+      const root = ReactDOM.createRoot(container)
+      // ReactDOM.createRoot(container).render(p_time);
+      // root.render(p_time)
+
+      setInterval(()=>{
+        const p_time = <p>Current time {dayjs().format('HH:mm:ss')}</p>
+        root.render(p_time)
+      }, 1000)
+
     </script>
   </body>
 </html>
