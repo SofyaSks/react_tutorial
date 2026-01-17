@@ -3,6 +3,7 @@ import { Header } from '../components/Header'
 export function OrdersPage() {
     return (
         <>
+            <link rel="icon" href="orders-favicon.png" />
             <title>Orders</title>
 
             <Header />
