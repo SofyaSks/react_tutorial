@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router'
 import './App.css'
-import './pages/HomePage'
-import { HomePage } from './pages/HomePage'
+import './pages/home/HomePage'
+import { HomePage } from './pages/home/HomePage'
 import { CheckoutPage } from './pages/checkout/CheckoutPage'
-import { OrdersPage } from './pages/OrdersPage'
+import { OrdersPage } from './pages/orders/OrdersPage'
 import { TrackingPage } from './pages/TrackingPage'
 import { NotFoundPage } from './pages/NotFoundPage'
 import { useEffect, useState } from 'react'
@@ -28,7 +28,6 @@ function App() {
       <Route path='orders' element={<OrdersPage cart = {cart} />} />
       <Route path='tracking' element={<TrackingPage />} />
       <Route path='*' element={<NotFoundPage />}></Route>
-
     </Routes>
 
   )
